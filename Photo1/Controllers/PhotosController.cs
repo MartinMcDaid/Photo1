@@ -11,9 +11,9 @@ namespace Photo1.Controllers
 {
     public class PhotosController : Controller
     {
-        private readonly Photo1Context _context;
+        private readonly AppDbContext _context;
 
-        public PhotosController(Photo1Context context)
+        public PhotosController(AppDbContext context)
         {
             _context = context;
         }
@@ -21,7 +21,7 @@ namespace Photo1.Controllers
         // GET: Photos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Photo.ToListAsync());
+            return View(await _context.Photos.ToListAsync());
         }
 
         // GET: Photos/Details/5
@@ -32,7 +32,7 @@ namespace Photo1.Controllers
                 return NotFound();
             }
 
-            var photo = await _context.Photo
+            var photo = await _context.Photos
                 .FirstOrDefaultAsync(m => m.PhotoId == id);
             if (photo == null)
             {
@@ -72,7 +72,7 @@ namespace Photo1.Controllers
                 return NotFound();
             }
 
-            var photo = await _context.Photo.FindAsync(id);
+            var photo = await _context.Photos.FindAsync(id);
             if (photo == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace Photo1.Controllers
                 return NotFound();
             }
 
-            var photo = await _context.Photo
+            var photo = await _context.Photos
                 .FirstOrDefaultAsync(m => m.PhotoId == id);
             if (photo == null)
             {
@@ -138,15 +138,15 @@ namespace Photo1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var photo = await _context.Photo.FindAsync(id);
-            _context.Photo.Remove(photo);
+            var photo = await _context.Photos.FindAsync(id);
+            _context.Photos.Remove(photo);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PhotoExists(int id)
         {
-            return _context.Photo.Any(e => e.PhotoId == id);
+            return _context.Photos.Any(e => e.PhotoId == id);
         }
     }
 }

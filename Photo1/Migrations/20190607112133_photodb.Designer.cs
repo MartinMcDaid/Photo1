@@ -9,8 +9,8 @@ using Photo1.Models;
 namespace Photo1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190606142205_photos")]
-    partial class photos
+    [Migration("20190607112133_photodb")]
+    partial class photodb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

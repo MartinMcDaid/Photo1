@@ -37,9 +37,6 @@ namespace Photo1
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddDbContext<Photo1Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Photo1Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,7 +61,7 @@ namespace Photo1
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Photos}/{action=Index}/{id?}");
             });
         }
     }
