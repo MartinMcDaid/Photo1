@@ -30,6 +30,10 @@ namespace Photo1.Migrations
 
                     b.Property<string>("PhotoUrl");
 
+                    b.Property<string>("Price");
+
+                    b.Property<string>("ShortDescription");
+
                     b.Property<bool>("Special");
 
                     b.Property<string>("Title");

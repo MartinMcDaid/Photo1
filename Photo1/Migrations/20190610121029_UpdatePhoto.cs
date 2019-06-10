@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Photo1.Migrations
 {
-    public partial class photodb : Migration
+    public partial class UpdatePhoto : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,9 +14,11 @@ namespace Photo1.Migrations
                     PhotoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Title = table.Column<string>(nullable: true),
+                    ShortDescription = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Location = table.Column<string>(nullable: true),
                     PhotoUrl = table.Column<string>(nullable: true),
+                    Price = table.Column<string>(nullable: true),
                     Special = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>

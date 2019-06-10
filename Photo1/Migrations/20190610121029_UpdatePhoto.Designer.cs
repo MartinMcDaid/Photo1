@@ -9,8 +9,8 @@ using Photo1.Models;
 namespace Photo1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190607112133_photodb")]
-    partial class photodb
+    [Migration("20190610121029_UpdatePhoto")]
+    partial class UpdatePhoto
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,10 @@ namespace Photo1.Migrations
                     b.Property<string>("Location");
 
                     b.Property<string>("PhotoUrl");
+
+                    b.Property<string>("Price");
+
+                    b.Property<string>("ShortDescription");
 
                     b.Property<bool>("Special");
 

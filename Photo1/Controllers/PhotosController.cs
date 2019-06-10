@@ -53,7 +53,7 @@ namespace Photo1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PhotoId,Title,Description,Location,PhotoUrl,Special")] Photo photo)
+        public async Task<IActionResult> Create([Bind("PhotoId,Title,ShortDescription,Description,Location,PhotoUrl,Price,Special")] Photo photo)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Photo1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PhotoId,Title,Description,Location,PhotoUrl,Special")] Photo photo)
+        public async Task<IActionResult> Edit(int id, [Bind("PhotoId,Title,ShortDescription,Description,Location,PhotoUrl,Price,Special")] Photo photo)
         {
             if (id != photo.PhotoId)
             {
