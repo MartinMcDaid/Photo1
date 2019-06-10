@@ -61,7 +61,7 @@ namespace Photo1
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Photos}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
