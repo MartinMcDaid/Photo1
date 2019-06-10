@@ -1,11 +1,33 @@
-﻿
+﻿@model IEnumerable<Photo1.Models.Photo>
 @{
     ViewData["Title"] = "Gallery";
 }
-
 
 <p>
     <h1> The Gallery</h1>
 </p>
 
+<div class="container">
+    <div class="row">
+        <p>
+            @foreach (var photo in Model)
+            {
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <h3>
+                        @Html.DisplayFor(modelItem => photo.Title)
+                    </h3>
+
+                    <div class="thumbnail">
+                        <img src="@photo.PhotoUrl" alt="@photo.Title" class="img-responsive" style="width:330px" />
+                    </div>
+
+                    <div class="caption">
+                        <h4 class="pull-right">@photo.Description</h4>
+                    </div>
+
+                </div>
+            }
+        </p>
+    </div>
+</div>
 

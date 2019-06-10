@@ -30,7 +30,8 @@ namespace Photo1.Controllers
 
         public IActionResult Gallery()
         {
-            return View();
+            var photos = _photoRepository.GetAllPhotos().OrderBy(p => p.Title);
+            return View(photos);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
