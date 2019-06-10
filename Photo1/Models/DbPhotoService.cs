@@ -18,5 +18,10 @@ namespace Photo1.Models
         {
             return _appDbContext.Photos;
         }
+
+        public Photo GetPhotoById(int photoId)
+        {
+            return _appDbContext.Photos.FirstOrDefault(p => p.PhotoId == photoId);
+        }
     }
 }

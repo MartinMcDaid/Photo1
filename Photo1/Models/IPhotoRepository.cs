@@ -8,5 +8,6 @@ namespace Photo1.Models
     public interface IPhotoRepository
     {
         IEnumerable<Photo> GetAllPhotos();
+        Photo GetPhotoById(int Id);
     }
 }

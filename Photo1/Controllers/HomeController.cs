@@ -34,6 +34,14 @@ namespace Photo1.Controllers
             return View(photos);
         }
 
+        public IActionResult ViewDetails(int Id)
+        {
+            var photo = _photoRepository.GetPhotoById(Id);
+            if (photo == null)
+                return NotFound();
+            return View(photo);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
