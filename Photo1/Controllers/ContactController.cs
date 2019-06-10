@@ -31,5 +31,10 @@ namespace Photo1.Controllers
             }
             return View(contact);
         }
+
+        public IActionResult ContactComplete()
+        {
+            return View();
+        }
     }
 }
