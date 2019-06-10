@@ -16,6 +16,11 @@ namespace Photo1.Controllers
             _contactRepository = contactRepository;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Index(Contact contact)
         {
