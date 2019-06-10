@@ -16,9 +16,15 @@ namespace Photo1.Controllers
             _contactRepository = contactRepository;
         }
 
-        public IActionResult Index()
+        [HttpPost]
+        public IActionResult Index(Contact contact)
         {
-            return View();
+            if(ModelState.IsValid)
+            {
+                _contactRepository.AddContact(contact);
+                return RedirectToAction("ContactComplete");
+            }
+            return View(contact);
         }
     }
 }
