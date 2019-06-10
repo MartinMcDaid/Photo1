@@ -34,6 +34,7 @@ namespace Photo1
             });
 
             services.AddTransient<IPhotoRepository, DbPhotoService>();
+            services.AddTransient<IContactRepository, ContactService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
