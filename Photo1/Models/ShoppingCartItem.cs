@@ -7,11 +7,11 @@ namespace Photo1.Models
 {
     public class ShoppingCartItem
     {
-        public int CartItemId { get; set; }
+        public int ShoppingCartItemId { get; set; }
 
         public Photo CartPhoto { get; set; }
 
-        public string Amount { get; set; }
+        public int Amount { get; set; }
 
         public string CartId { get; set; }
     }

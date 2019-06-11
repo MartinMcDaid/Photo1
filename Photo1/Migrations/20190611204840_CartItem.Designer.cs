@@ -10,8 +10,8 @@ using Photo1.Models;
 namespace Photo1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190610202033_IdentityAdded")]
-    partial class IdentityAdded
+    [Migration("20190611204840_CartItem")]
+    partial class CartItem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,9 +138,11 @@ namespace Photo1.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("ProviderKey");
+                    b.Property<string>("ProviderKey")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -171,9 +173,11 @@ namespace Photo1.Migrations
                 {
                     b.Property<string>("UserId");
 
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Value");
 
@@ -219,7 +223,7 @@ namespace Photo1.Migrations
 
                     b.Property<string>("PhotoUrl");
 
-                    b.Property<string>("Price");
+                    b.Property<decimal>("Price");
 
                     b.Property<string>("ShortDescription");
 
@@ -230,6 +234,25 @@ namespace Photo1.Migrations
                     b.HasKey("PhotoId");
 
                     b.ToTable("Photos");
+                });
+
+            modelBuilder.Entity("Photo1.Models.ShoppingCartItem", b =>
+                {
+                    b.Property<int>("ShoppingCartItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Amount");
+
+                    b.Property<string>("CartId");
+
+                    b.Property<int?>("CartPhotoPhotoId");
+
+                    b.HasKey("ShoppingCartItemId");
+
+                    b.HasIndex("CartPhotoPhotoId");
+
+                    b.ToTable("ShoppingCartItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -275,6 +298,13 @@ namespace Photo1.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Photo1.Models.ShoppingCartItem", b =>
+                {
+                    b.HasOne("Photo1.Models.Photo", "CartPhoto")
+                        .WithMany()
+                        .HasForeignKey("CartPhotoPhotoId");
                 });
 #pragma warning restore 612, 618
         }

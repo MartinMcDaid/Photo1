@@ -35,6 +35,14 @@ namespace Photo1
 
             services.AddTransient<IPhotoRepository, DbPhotoService>();
             services.AddTransient<IContactRepository, ContactService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShoppingCart.GetCart(sp));
+
+            services.AddMvc();
+            services.AddMemoryCache();
+            services.AddSession();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -58,6 +66,8 @@ namespace Photo1
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
+            app.UseSession();
+            app.UseMvcWithDefaultRoute();
 
             app.UseMvc(routes =>
             {
