@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Photo1.Models;
 
 namespace Photo1.Controllers
 {
+    [Authorize]
     public class ContactController : Controller
     {
         private readonly IContactRepository _contactRepository;
