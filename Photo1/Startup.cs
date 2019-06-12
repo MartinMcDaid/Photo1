@@ -35,7 +35,7 @@ namespace Photo1
 
             services.AddTransient<IPhotoRepository, DbPhotoService>();
             services.AddTransient<IContactRepository, ContactService>();
-
+            services.AddTransient<IOrderRepository, OrderService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShoppingCart.GetCart(sp));
 

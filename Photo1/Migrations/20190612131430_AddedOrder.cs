@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Photo1.Migrations
 {
-    public partial class shoppingCart : Migration
+    public partial class AddedOrder : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,6 +61,27 @@ namespace Photo1.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Contacts", x => x.ContactId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    OrderId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    AddressLine1 = table.Column<string>(nullable: true),
+                    AddressLine2 = table.Column<string>(nullable: true),
+                    Country = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    OrderTotal = table.Column<decimal>(nullable: false),
+                    OrderPlaced = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.OrderId);
                 });
 
             migrationBuilder.CreateTable(
@@ -189,6 +210,34 @@ namespace Photo1.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "OrderDetails",
+                columns: table => new
+                {
+                    OrderDetailId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    OrderId = table.Column<int>(nullable: false),
+                    PhotoId = table.Column<int>(nullable: false),
+                    Amount = table.Column<int>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderDetails", x => x.OrderDetailId);
+                    table.ForeignKey(
+                        name: "FK_OrderDetails_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "OrderId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderDetails_Photos_PhotoId",
+                        column: x => x.PhotoId,
+                        principalTable: "Photos",
+                        principalColumn: "PhotoId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ShoppingCartItems",
                 columns: table => new
                 {
@@ -249,6 +298,16 @@ namespace Photo1.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OrderDetails_OrderId",
+                table: "OrderDetails",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderDetails_PhotoId",
+                table: "OrderDetails",
+                column: "PhotoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCartItems_CartPhotoPhotoId",
                 table: "ShoppingCartItems",
                 column: "CartPhotoPhotoId");
@@ -275,6 +334,9 @@ namespace Photo1.Migrations
                 name: "Contacts");
 
             migrationBuilder.DropTable(
+                name: "OrderDetails");
+
+            migrationBuilder.DropTable(
                 name: "ShoppingCartItems");
 
             migrationBuilder.DropTable(
@@ -282,6 +344,9 @@ namespace Photo1.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Photos");

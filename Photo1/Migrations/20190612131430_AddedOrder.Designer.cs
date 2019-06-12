@@ -10,8 +10,8 @@ using Photo1.Models;
 namespace Photo1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190612101310_shoppingCart")]
-    partial class shoppingCart
+    [Migration("20190612131430_AddedOrder")]
+    partial class AddedOrder
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -211,6 +211,58 @@ namespace Photo1.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("Photo1.Models.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AddressLine1");
+
+                    b.Property<string>("AddressLine2");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<DateTime>("OrderPlaced");
+
+                    b.Property<decimal>("OrderTotal");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Photo1.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("OrderDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Amount");
+
+                    b.Property<int>("OrderId");
+
+                    b.Property<int>("PhotoId");
+
+                    b.Property<decimal>("Price");
+
+                    b.HasKey("OrderDetailId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("PhotoId");
+
+                    b.ToTable("OrderDetails");
+                });
+
             modelBuilder.Entity("Photo1.Models.Photo", b =>
                 {
                     b.Property<int>("PhotoId")
@@ -297,6 +349,19 @@ namespace Photo1.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Photo1.Models.OrderDetail", b =>
+                {
+                    b.HasOne("Photo1.Models.Order", "Order")
+                        .WithMany("OrderLines")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Photo1.Models.Photo", "Photo")
+                        .WithMany()
+                        .HasForeignKey("PhotoId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

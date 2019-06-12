@@ -17,5 +17,7 @@ namespace Photo1.Models
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; } 
     }
 }
