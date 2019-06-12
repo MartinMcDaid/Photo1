@@ -67,7 +67,7 @@ namespace Photo1
             app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseSession();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
 
             app.UseMvc(routes =>
             {

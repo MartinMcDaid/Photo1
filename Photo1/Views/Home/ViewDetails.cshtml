@@ -54,7 +54,7 @@
             @Html.DisplayNameFor(model => model.Special)
         </dt>*@
         <dd>
-            <a asp-controller="cart" asp-action="buy" class="btn btn-info" role="button">Add To Cart</a> 
+            <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-photoId="@Model.PhotoId" class="btn btn-info" role="button">Add To Cart</a> 
         </dd>
         @*<dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Special)

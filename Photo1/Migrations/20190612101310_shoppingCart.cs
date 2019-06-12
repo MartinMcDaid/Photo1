@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Photo1.Migrations
 {
-    public partial class CartItem : Migration
+    public partial class shoppingCart : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
