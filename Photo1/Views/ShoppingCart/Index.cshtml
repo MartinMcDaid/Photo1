@@ -22,7 +22,12 @@
             {
             <tr>
                 <td>
-                    <img src="@line.CartPhoto.PhotoUrl" alt="@line.CartPhoto.Title" class="img-thumbnail" style="width:220px" />
+                    <a asp-controller="Home" asp-action="ViewDetails"
+                       asp-route-id="@line.CartPhoto.PhotoId">
+                        <div class="thumbnail">
+                            <img src="@line.CartPhoto.PhotoUrl" alt="@line.CartPhoto.Title" class="img-thumbnail" style="width:220px" />
+                        </div>
+                    </a>
                 </td>
                 <td class="text-left">@line.CartPhoto.Title</td>
                 <td class="text-center">@line.Amount</td>
@@ -30,7 +35,7 @@
                 <td class="text-right">
                     @((line.Amount * line.CartPhoto.Price).ToString("c"))
                 </td>
-                <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-drinkId="@line.CartPhoto.PhotoId"></a></td>
+                <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-photoId="@line.CartPhoto.PhotoId">Delete</a></td>
             </tr>
             }
         </tbody>
@@ -49,7 +54,7 @@
             <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Check out</a>
             <a class="btn-group">
                 <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Add more drinks<span class="caret"></span>
+                    Add more photos<span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a asp-controller="Drink" asp-action="List" asp-route-category="Alcoholic">Alcoholic</a></li>
