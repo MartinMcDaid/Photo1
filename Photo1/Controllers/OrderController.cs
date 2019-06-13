@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Photo1.Models;
 
@@ -20,6 +21,33 @@ namespace Photo1.Controllers
 
         public IActionResult CheckOut()
         {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult CheckOut(Order order)
+        {
+            var items = _shoppingCart.GetShoppingCartItems();
+            _shoppingCart.ShoppingCartItems = items;
+
+            if (_shoppingCart.ShoppingCartItems.Count == 0)
+            {
+                ModelState.AddModelError("", "Your Cart Is empty");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _orderRepository.CreateOrder(order);
+                _shoppingCart.ClearCart();
+                return RedirectToAction("CheckOutComplete");
+            }
+            return View(order);
+        }
+
+        public IActionResult CheckOutComplete()
+        {
+            ViewBag.CheckoutCompleteMessage = "Thanks for your order!";
             return View();
         }
     }

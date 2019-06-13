@@ -1,11 +1,23 @@
 ﻿@model ShoppingCartViewModel
 
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
 <div class="row checkoutForm">
-    <h2>Your shopping cart</h2>
-    <p>
-        <h4>Here are the photos in your shopping cart.</h4>
-    </p>    
+    <div>
+        <h2>Your shopping cart</h2>
+    </div>
+    <div>
+        <p>
+            <h4>Here are the photos in your shopping cart.</h4>
+        </p>
+        
+    </div>
     
+        
+    
+
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -20,23 +32,23 @@
         <tbody>
             @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
             {
-            <tr>
-                <td>
-                    <a asp-controller="Home" asp-action="ViewDetails"
-                       asp-route-id="@line.CartPhoto.PhotoId">
-                        <div class="thumbnail">
-                            <img src="@line.CartPhoto.PhotoUrl" alt="@line.CartPhoto.Title" class="img-thumbnail" style="width:220px" />
-                        </div>
-                    </a>
-                </td>
-                <td class="text-left">@line.CartPhoto.Title</td>
-                <td class="text-center">@line.Amount</td>
-                <td class="text-right">@line.CartPhoto.Price.ToString("c")</td>
-                <td class="text-right">
-                    @((line.Amount * line.CartPhoto.Price).ToString("c"))
-                </td>
-                <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-photoId="@line.CartPhoto.PhotoId">Delete</a></td>
-            </tr>
+                <tr>
+                    <td>
+                        <a asp-controller="Home" asp-action="ViewDetails"
+                           asp-route-id="@line.CartPhoto.PhotoId">
+                            <div class="thumbnail">
+                                <img src="@line.CartPhoto.PhotoUrl" alt="@line.CartPhoto.Title" class="img-thumbnail" style="width:220px" />
+                            </div>
+                        </a>
+                    </td>
+                    <td class="text-left">@line.CartPhoto.Title</td>
+                    <td class="text-center">@line.Amount</td>
+                    <td class="text-right">@line.CartPhoto.Price.ToString("c")</td>
+                    <td class="text-right">
+                        @((line.Amount * line.CartPhoto.Price).ToString("c"))
+                    </td>
+                    <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-photoId="@line.CartPhoto.PhotoId">Delete</a></td>
+                </tr>
             }
         </tbody>
         <tfoot>
@@ -49,18 +61,18 @@
         </tfoot>
     </table>
 
-    <div class="text-right">
+    <div class="pull-right">
         <div class="btn-group ">
-            <a class="btn btn-success" asp-controller="Order" asp-action="CheckOut">Check out</a>
-            <a class="btn-group">
-                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Add more photos<span class="caret"></span>
-                </a>
+            <a class="btn btn-default" style="background-color:darkgray" asp-controller="Order" asp-action="CheckOut">Check out</a>
+            <div class="btn-group ">
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                    Continue Shopping<span class="caret"></span>
+                </button>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a asp-controller="Drink" asp-action="List" asp-route-category="Alcoholic">Alcoholic</a></li>
-                    <li><a asp-controller="Drink" asp-action="List" asp-route-category="Non-alcoholic">Non Alcoholic</a></li>
+                    <li><a href="#">Tablet</a></li>
+                    <li><a href="#">Smartphone</a></li>
                 </ul>
-            </a>
+            </div>
         </div>
     </div>
 </div>

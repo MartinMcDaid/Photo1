@@ -2,12 +2,18 @@
   "version": "1.0",
   "defaultProvider": "cdnjs",
   "libraries": [
+    //{
+    //  "library": "twitter-bootstrap@3.3.7",
+    //  "destination": "wwwroot/lib/twitter-bootstrap/"
+    //},
+    //{
+    //  "library": "twitter-bootstrap@3.4.0",
+    //  "destination": "wwwroot/lib/twitter-bootstrap/"
+    //}
+    ,
     {
-      "library": "twitter-bootstrap@3.3.7",
-      "destination": "wwwroot/lib/twitter-bootstrap/"
-    },
-    {
-      "library": "twitter-bootstrap@3.4.0",
+      "provider": "cdnjs",
+      "library": "twitter-bootstrap@4.0.0",
       "destination": "wwwroot/lib/twitter-bootstrap/"
     }
   ]

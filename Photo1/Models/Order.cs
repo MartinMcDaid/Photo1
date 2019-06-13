@@ -12,12 +12,12 @@ namespace Photo1.Models
         [BindNever]
         public int OrderId { get; set; }
 
+        
+        public List<OrderDetail> OrderLines { get; set; }
+
         [Required(ErrorMessage = "Please enter your first name")]
         [Display(Name = "First Name")]
         [StringLength(50)]
-        public List<OrderDetail> OrderLines { get; set; }
-
-        
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Please enter your last name")]
@@ -41,6 +41,7 @@ namespace Photo1.Models
         [StringLength(25)]
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone number")]
+        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage = "The phone nummber is not in the correct format")]
         public string PhoneNumber { get; set; }
 
         [Required]
