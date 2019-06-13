@@ -23,5 +23,20 @@ namespace Photo1.Models
         {
             return _appDbContext.Photos.FirstOrDefault(p => p.PhotoId == photoId);
         }
+
+        public List<Photo> Specials()
+        {
+            List<Photo> Specials = new List<Photo>();
+
+            foreach(var photo in _appDbContext.Photos)
+            {
+                if(photo.Special ==true)
+                {
+                    Specials.Add(photo);
+                }
+            }
+            return Specials;
+
+        }
     }
 }

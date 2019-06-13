@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Photo1.Migrations
 {
-    public partial class AddedOrder : Migration
+    public partial class addedOrder : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,12 +70,12 @@ namespace Photo1.Migrations
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    AddressLine1 = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(maxLength: 50, nullable: false),
+                    AddressLine1 = table.Column<string>(maxLength: 100, nullable: false),
                     AddressLine2 = table.Column<string>(nullable: true),
-                    Country = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
+                    Country = table.Column<string>(maxLength: 50, nullable: false),
+                    PhoneNumber = table.Column<string>(maxLength: 25, nullable: false),
+                    Email = table.Column<string>(maxLength: 50, nullable: false),
                     OrderTotal = table.Column<decimal>(nullable: false),
                     OrderPlaced = table.Column<DateTime>(nullable: false)
                 },

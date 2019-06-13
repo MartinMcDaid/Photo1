@@ -9,5 +9,6 @@ namespace Photo1.Models
     {
         IEnumerable<Photo> GetAllPhotos();
         Photo GetPhotoById(int Id);
+        List<Photo> Specials();
     }
 }
