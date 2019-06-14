@@ -18,6 +18,7 @@ namespace Photo1.Models
 
         public void CreateOrder(Order order)
         {
+            order.OrderTotal = _shoppingCart.GetCartTotal();
             order.OrderPlaced = DateTime.Now;
             _appDbContext.Orders.Add(order);
 

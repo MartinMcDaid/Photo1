@@ -1,22 +1,23 @@
 ﻿@model Order
 
+<h3 class="text-center">You are just one step away from ordering your photos.</h3>
+
 <div class="row orderForm ">
-    <h3 class="text-center">You are just one step away from ordering your photos.</h3>
 
     <div asp-validation-summary="All"></div>
 
     <form asp-action="CheckOut" method="post" class="form-horizontal" role="form">
-        <div class="form-group">
-            <label asp-for="FirstName" class="col-md-2 control-label"></label>
-            <div class="col-md-5">
-                <input asp-for="FirstName" class="form-control" />
+        <div class="form-group col-sm-2 col-md-6 col-lg-12">
+            <div>
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control-sm" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
             <label asp-for="LastName" class="col-md-2 control-label"></label>
             <div class="col-md-5">
-                <input asp-for="LastName" class="form-control" />
+                <input asp-for="LastName" class="form-control-sm" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
         </div>
@@ -62,8 +63,8 @@
         <div class="form-group">
             <div class="btn-group col-md-offset-2 col-md-8">
 
-                <input class="btn btn-success" type="submit" value="Complete order" />
-
+                <input class="btn btn-info" type="submit" value="Complete order" />
+                <a class="btn btn-info btn-cart" asp-area="" asp-controller="ShoppingCart" asp-action="Index">Cart</a>
                 @*<input class="btn btn-default" type="submit" value="Return " />*@
             </div>
         </div>

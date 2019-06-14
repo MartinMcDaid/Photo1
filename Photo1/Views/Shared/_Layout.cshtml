@@ -42,7 +42,7 @@
                             <partial name="_LoginPartial" />
                         </li>
                         <li class="nav-item">
-                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            <a class="nav-link text-dark btn btn-default btn-cart" asp-area="" asp-controller="ShoppingCart" asp-action="Index">Cart</a>
                             @await Component.InvokeAsync("ShoppingCartSummary")
                         </li>
                     </ul>
@@ -57,11 +57,18 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted" >
-        <div class="container">
-            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            
-            &copy; Marty McDaid 2019 - JLP Photography
+    <footer class="border-top footer" span="">
+        <div class="container-fluid" style="background-color:#4e4d4c; margin:auto">
+            <a class="text-white">
+                &copy; Marty McDaid 2019 - JLP Photography
+            </a>
+            <a class="bottomNavItem" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="bottomNavItem"> | </a>
+            <a class="bottomNavItem" asp-area="" asp-controller="Home" asp-action="Gallery">Gallery</a>
+            <a class="bottomNavDivision"> | </a>
+            <a class="bottomNavItem" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a class="bottomNavDivision"> | </a>
+            <a class="bottomNavItem" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
         </div>
     </footer>
 

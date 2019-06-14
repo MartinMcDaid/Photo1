@@ -34,7 +34,8 @@
             @Html.DisplayFor(model => model.Price)
         </dd>
         <dd>
-            <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-photoId="@Model.PhotoId" class="btn btn-info" role="button">Add To Cart</a> 
+            <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-photoId="@Model.PhotoId" class="btn btn-info" role="button">Add To Cart</a>
+            <a asp-controller="Home" asp-action="Gallery" class="btn btn-info" role="button">Return To Gallery</a>
         </dd>
     </dl>
 </div>

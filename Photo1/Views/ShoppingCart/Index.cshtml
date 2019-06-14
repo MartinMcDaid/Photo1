@@ -3,25 +3,21 @@
 @{
     ViewData["Title"] = "Shopping Cart";
 }
-
-<div class="row checkoutForm">
+<div style="padding-bottom:2%">
     <div>
         <h2>Your shopping cart</h2>
     </div>
     <div>
-        <p>
-            <h4>Here are the photos in your shopping cart.</h4>
-        </p>
-        
+        <h4>Here are the photos in your shopping cart.</h4>
     </div>
-    
-        
-    
+</div>
 
-    <table class="table table-bordered table-striped">
+
+<div class="row checkoutForm">
+<table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th></th>
+                <th class="text-muted">Click thumbnail to return to details</th>
                 <th>Photo</th>
                 <th>Selected amount</th>
                 <th class="text-right">Price</th>
@@ -63,16 +59,8 @@
 
     <div class="pull-right">
         <div class="btn-group ">
-            <a class="btn btn-default" style="background-color:darkgray" asp-controller="Order" asp-action="CheckOut">Check out</a>
-            <div class="btn-group ">
-                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                    Continue Shopping<span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Tablet</a></li>
-                    <li><a href="#">Smartphone</a></li>
-                </ul>
-            </div>
+            <a class="btn btn-info" asp-controller="Order" asp-action="CheckOut">Check out</a>
+            <a class="btn btn-info" asp-controller="Home" asp-action="Gallery">Continue Shopping</a>
         </div>
     </div>
 </div>
