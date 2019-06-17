@@ -13,6 +13,7 @@
             @foreach (var photo in Model)
             {
                 <div class="col-sm-12 col-md-6 col-lg-4">     
+                    <div class="gallery">
                         <a asp-controller="Home" asp-action="ViewDetails"
                            asp-route-id="@photo.PhotoId">
                             <div class="flex-row">
@@ -27,6 +28,8 @@
                         <div class="caption">
                             <h4 class="pull-right">@photo.Price.ToString("c")</h4>
                         </div>
+                    </div>
+                        
                 </div>
             }
         </p>

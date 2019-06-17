@@ -53,6 +53,21 @@ body {
   margin-bottom: 60px;
 }
 
+h1 {
+    font-family:'Imprint MT Shadow', 'Arial';
+}
+
+.carousel_slide {
+    padding:1%;
+}
+
+.carousel-item {
+    width: 1100px;
+    height: 630px;
+    object-fit: cover;
+
+}
+
 .footer {
   position:absolute;
   bottom: 0;
