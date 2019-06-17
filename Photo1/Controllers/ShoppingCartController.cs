@@ -54,5 +54,15 @@ namespace Photo1.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public RedirectToActionResult ClearShoppingCart()
+        {
+            if (_shoppingCart != null)
+            {
+                _shoppingCart.ClearCart();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -23,7 +23,7 @@ namespace Photo1.Controllers
             return View(photos);
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }

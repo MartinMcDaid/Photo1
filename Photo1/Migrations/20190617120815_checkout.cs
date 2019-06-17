@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Photo1.Migrations
 {
-    public partial class feedback : Migration
+    public partial class checkout : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -69,13 +69,16 @@ namespace Photo1.Migrations
                 {
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FirstName = table.Column<string>(maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(maxLength: 50, nullable: false),
+                    FirstName = table.Column<string>(maxLength: 30, nullable: false),
+                    LastName = table.Column<string>(maxLength: 30, nullable: false),
                     AddressLine1 = table.Column<string>(maxLength: 100, nullable: false),
                     AddressLine2 = table.Column<string>(nullable: true),
-                    Country = table.Column<string>(maxLength: 50, nullable: false),
+                    City = table.Column<string>(maxLength: 30, nullable: false),
+                    Country = table.Column<string>(maxLength: 30, nullable: false),
                     PhoneNumber = table.Column<string>(maxLength: 25, nullable: false),
                     Email = table.Column<string>(maxLength: 50, nullable: false),
+                    CreditCard = table.Column<string>(maxLength: 19, nullable: false),
+                    SecurityCode = table.Column<string>(maxLength: 3, nullable: false),
                     OrderTotal = table.Column<decimal>(nullable: false),
                     OrderPlaced = table.Column<DateTime>(nullable: false)
                 },

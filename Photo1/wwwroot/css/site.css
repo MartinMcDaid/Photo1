@@ -37,6 +37,10 @@ button.accept-policy {
   line-height: inherit;
 }
 
+.main.h1 {
+    font-family: 'Imprint MT Shadow';
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

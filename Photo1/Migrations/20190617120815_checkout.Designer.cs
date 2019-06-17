@@ -10,8 +10,8 @@ using Photo1.Models;
 namespace Photo1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190617100341_feedback")]
-    partial class feedback
+    [Migration("20190617120815_checkout")]
+    partial class checkout
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -223,9 +223,17 @@ namespace Photo1.Migrations
 
                     b.Property<string>("AddressLine2");
 
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
                     b.Property<string>("Country")
                         .IsRequired()
-                        .HasMaxLength(50);
+                        .HasMaxLength(30);
+
+                    b.Property<string>("CreditCard")
+                        .IsRequired()
+                        .HasMaxLength(19);
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -233,11 +241,11 @@ namespace Photo1.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(50);
+                        .HasMaxLength(30);
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(50);
+                        .HasMaxLength(30);
 
                     b.Property<DateTime>("OrderPlaced");
 
@@ -246,6 +254,10 @@ namespace Photo1.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(25);
+
+                    b.Property<string>("SecurityCode")
+                        .IsRequired()
+                        .HasMaxLength(3);
 
                     b.HasKey("OrderId");
 
