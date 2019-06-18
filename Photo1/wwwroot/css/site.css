@@ -73,64 +73,86 @@ h1 {
    
 }
 
-.detail_container {
-    width:600px;
-    object-fit: scale-down;
+@media(min-width: 768px) {
+    .detail_container {
+        width: 600px;
+        object-fit: scale-down;
+    }
 }
 
-.detail_container:hover {
-    width:auto;
+@media(max-width: 768px) {
+    .detail_container {
+        width: 300px;
+        object-fit: scale-down;
+    }
+    .detail_container:hover {
+        width:460px;
+    }
 }
 
-.gallery_image {
-    width: 330px;
-    height: 220px;
-    object-fit: scale-down;
-    object-position: center;
-    margin:1%;
+ @media(min-width: 768px) {
+    .detail_container:hover {
+            width: auto;
+    }
 }
 
-.gallery_image:hover {
-    box-shadow:rgb(128, 128, 128) 3px 3px;
-}
+    .gallery_image {
+        width: 330px;
+        height: 220px;
+        object-fit: scale-down;
+        object-position: center;
+        margin: 1%;
+    }
 
-.gallery_link:hover {
-    text-underline-position:unset;
-    font-style:italic;
-}
-.about_image {
-    float:left;
-    width:inherit;
-    height:auto;
-}
+        .gallery_image:hover {
+            box-shadow: rgb(128, 128, 128) 3px 3px;
+        }
 
-.about_secondary {
-    object-position: right;
-    width: 50%;
-    height: auto;  
-}
+    .gallery_link:hover {
+        text-decoration: none;
+        font-style: italic;
+    }
 
-.take_shit{
-    float:right;
+    .about_image {
+        float: left;
+        width: 100%;
+        object-fit: scale-down;
+    }
+
+    .about_row {
+        margin: 0px 0px 20px 0px;
+    }
+
+    .about_secondary {
+        float: right;
+        width: 100%;
+        height: auto;
+        object-fit: scale-down;
+    }
+
+.take_shit {
+    float: right;
     padding: 10px;
-    text-align:justify;
+    text-align: justify;
+    font-style: italic;
+    margin: 0px 0px 5px 0px;
 }
 
-.footer {
-  position:absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-}
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        white-space: nowrap;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        line-height: 60px; /* Vertically center the text there */
+    }
 
-.copy {
-    color: white;
-}
+    .copy {
+        color: white;
+    }
 
-.bottomNavItem {
-    color: #f8ffeb;
-}
+    .bottomNavItem {
+        color: #f8ffeb;
+    }
 
