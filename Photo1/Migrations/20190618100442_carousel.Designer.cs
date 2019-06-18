@@ -10,8 +10,8 @@ using Photo1.Models;
 namespace Photo1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190618073243_CreditCard")]
-    partial class CreditCard
+    [Migration("20190618100442_carousel")]
+    partial class carousel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -184,6 +184,19 @@ namespace Photo1.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Photo1.Models.Carousel", b =>
+                {
+                    b.Property<int>("CarouselId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CarouselUrl");
+
+                    b.HasKey("CarouselId");
+
+                    b.ToTable("Carousels");
                 });
 
             modelBuilder.Entity("Photo1.Models.Contact", b =>

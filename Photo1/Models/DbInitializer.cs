@@ -23,6 +23,17 @@ namespace Photo1.Models
                     new Photo { Title = "Bád Eddie", ShortDescription = "Bád Eddie, Magheraclogher Beach, Donegal", Description = "Bád Eddie, Co. Donegal Ireland", Location = "Ireland", PhotoUrl = "https://live.staticflickr.com/1725/42712165112_acbe950712_k_d.jpg/",Price=22.50m, Special = true }
                     );
             }
+
+            if(!context.Carousels.Any())
+            {
+                context.AddRange
+                    (
+                    new Carousel { CarouselUrl = "https://live.staticflickr.com/5484/11969290215_1fffb3de6c_k_d.jpg" },
+                    new Carousel { CarouselUrl = "https://live.staticflickr.com/7314/13039257904_ddb0ac30d0_k_d.jpg/" },
+                    new Carousel { CarouselUrl = "https://live.staticflickr.com/2916/14297760433_1be450c6f4_k_d.jpg" },
+                    new Carousel { CarouselUrl = "https://live.staticflickr.com/3750/14265315951_9788971793_k_d.jpg" }
+                    );
+            }
             context.SaveChanges();
         }
     }

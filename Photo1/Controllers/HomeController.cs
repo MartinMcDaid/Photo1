@@ -11,16 +11,18 @@ namespace Photo1.Controllers
     public class HomeController : Controller
     {
         private readonly IPhotoRepository _photoRepository;
+        private readonly ICarouselRepository _carouselRepository;
 
-        public HomeController(IPhotoRepository photoRepository)
+        public HomeController(IPhotoRepository photoRepository, ICarouselRepository carouselRepository)
         {
             _photoRepository = photoRepository;
+            _carouselRepository = carouselRepository;
         }
 
         public IActionResult Index()
         {
-            var photos = _photoRepository.GetAllPhotos().OrderBy(p => p.Title);
-            return View(photos);
+            var carousel = _carouselRepository.GetCarousels();
+            return View(carousel);
         }
 
         public IActionResult About()

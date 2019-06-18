@@ -184,6 +184,19 @@ namespace Photo1.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Photo1.Models.Carousel", b =>
+                {
+                    b.Property<int>("CarouselId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CarouselUrl");
+
+                    b.HasKey("CarouselId");
+
+                    b.ToTable("Carousels");
+                });
+
             modelBuilder.Entity("Photo1.Models.Contact", b =>
                 {
                     b.Property<int>("ContactId")
