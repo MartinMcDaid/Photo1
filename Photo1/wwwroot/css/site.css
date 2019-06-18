@@ -73,6 +73,34 @@ h1 {
    
 }
 
+.detail_container {
+    width:600px;
+    object-fit: scale-down;
+}
+
+.detail_container:hover {
+    width:auto;
+}
+
+
+.about_image {
+    float:left;
+    width:inherit;
+    height:auto;
+}
+
+.about_secondary {
+    object-position: right;
+    width: 50%;
+    height: auto;  
+}
+
+.take_shit{
+    float:right;
+    padding: 10px;
+    text-align:justify;
+}
+
 .footer {
   position:absolute;
   bottom: 0;

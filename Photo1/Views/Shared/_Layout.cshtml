@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - JLP Photography</title>
+    <title>@ViewData["Title"] - ET Photography</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparent border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" style="font-family:'Imprint MT Shadow'" asp-area="" asp-controller="Home" asp-action="Index">JLP Photography</a>
+                <a class="navbar-brand" style="font-family:'Imprint MT Shadow'" asp-area="" asp-controller="Home" asp-action="Index">ET Photography</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,21 +30,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Gallery">Gallery</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
                         <li class="nav-item pull-right">
                             <partial name="_LoginPartial" />
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark btn btn-default btn-cart" asp-area=""
-                                 asp-controller="ShoppingCart" asp-action="Index">Cart
-                                <span class="badge badge-light">@await Component.InvokeAsync("ShoppingCartSummary")</span></a>
+                               asp-controller="ShoppingCart" asp-action="Index">
+                                Cart
+                                <span class="badge badge-light">@await Component.InvokeAsync("ShoppingCartSummary")</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -61,13 +63,13 @@
     <footer class="border-top footer" span="">
         <div class="container-fluid" style="background-color:#4e4d4c; margin:auto">
             <a class="text-white">
-                &copy; Marty McDaid 2019 - JLP Photography
+                &copy; Marty McDaid 2019 - ET Photography
             </a>
             <a class="bottomNavItem" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
             <a class="bottomNavItem"> | </a>
-            <a class="bottomNavItem" asp-area="" asp-controller="Home" asp-action="Gallery">Gallery</a>
+            <a class="bottomNavItem" asp-area="" asp-controller="Home" asp-action="About">About</a>
             <a class="bottomNavDivision"> | </a>
-            <a class="bottomNavItem" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a class="bottomNavItem" asp-area="" asp-controller="Home" asp-action="Gallery">Gallery</a>
             <a class="bottomNavDivision"> | </a>
             <a class="bottomNavItem" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
         </div>
