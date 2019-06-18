@@ -82,7 +82,22 @@ h1 {
     width:auto;
 }
 
+.gallery_image {
+    width: 330px;
+    height: 220px;
+    object-fit: scale-down;
+    object-position: center;
+    margin:1%;
+}
 
+.gallery_image:hover {
+    box-shadow:rgb(128, 128, 128) 3px 3px;
+}
+
+.gallery_link:hover {
+    text-underline-position:unset;
+    font-style:italic;
+}
 .about_image {
     float:left;
     width:inherit;
