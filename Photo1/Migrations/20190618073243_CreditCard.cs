@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Photo1.Migrations
 {
-    public partial class AddedCreditcard : Migration
+    public partial class CreditCard : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
