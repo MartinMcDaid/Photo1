@@ -1,7 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -49,11 +48,14 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
+    /* Margin bottom by footer height */
   margin-bottom: 60px;
-  
 }
 
+.nav_item:hover {
+    box-shadow: 5px 5px 10px grey;
+    transition: ease-in;
+}
 /*set the font for the H1 tags*/
 h1 {
     font-family:'Imprint MT Shadow', 'Arial';
@@ -72,7 +74,7 @@ h1 {
     object-fit: scale-down;
    
 }
-
+/*Detail container for smaller screen sizes*/
 @media(min-width: 768px) {
     .detail_container {
         width: 600px;
@@ -96,6 +98,7 @@ h1 {
     }
 }
 
+ /*Gallery*/
     .gallery_image {
         width: 330px;
         height: 220px;
@@ -104,39 +107,47 @@ h1 {
         margin: 1%;
     }
 
-        .gallery_image:hover {
-            box-shadow: rgb(128, 128, 128) 3px 3px;
-        }
+    .gallery_image:hover {
+        box-shadow: rgb(128, 128, 128) 3px 3px;
+}
 
     .gallery_link:hover {
         text-decoration: none;
         font-style: italic;
     }
 
+/*About page*/
     .about_image {
         float: left;
         width: 100%;
         object-fit: scale-down;
     }
 
-    .about_row {
-        margin: 0px 0px 20px 0px;
-    }
+.grid-container {
+    margin: 10px 0px 10px 0px;
+}
 
-    .about_secondary {
-        float: right;
-        width: 100%;
-        height: auto;
-        object-fit: scale-down;
-    }
-
-.take_shit {
+.paragraph_right {
     float: right;
-    padding: 10px;
     text-align: justify;
     font-style: italic;
-    margin: 0px 0px 5px 0px;
+    margin: 10px 0px 10px 0px;
 }
+
+.paragraph_left {
+    float: left;
+    text-align: justify;
+    font-style: italic;
+    margin: 0px 0px 0px 0px;
+}
+
+.about_images_right {
+    float: right;
+    width: 100%;
+    object-fit: scale-down;
+    margin: 30px 0px 0px 0px;
+}
+
 
     .footer {
         position: absolute;

@@ -32,7 +32,7 @@ namespace Photo1
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            //Services Added
             services.AddTransient<IPhotoRepository, DbPhotoService>();
             services.AddTransient<ICarouselRepository, DbCarouselService>();
             services.AddTransient<IContactRepository, ContactService>();

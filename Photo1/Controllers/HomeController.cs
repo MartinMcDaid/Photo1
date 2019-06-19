@@ -27,7 +27,8 @@ namespace Photo1.Controllers
 
         public IActionResult About()
         {
-            return View();
+            var carousel = _carouselRepository.GetCarousels();
+            return View(carousel);
         }
 
         public IActionResult Gallery()
