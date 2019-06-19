@@ -74,6 +74,17 @@ h1 {
     object-fit: scale-down;
    
 }
+
+.btn-info {
+    background-color: transparent;
+    color: grey;
+}
+
+    .btn-info:hover {
+        box-shadow: 5px 5px 10px grey;
+        transition: ease-in;
+    }
+
 /*Detail container for smaller screen sizes*/
 @media(min-width: 768px) {
     .detail_container {
@@ -151,11 +162,11 @@ h1 {
 
     .footer {
         position: absolute;
-        bottom: 0;
+        bottom: 0px;
         width: 100%;
         white-space: nowrap;
         /* Set the fixed height of the footer here */
-        height: 60px;
+        height: 0px;
         line-height: 60px; /* Vertically center the text there */
     }
 
