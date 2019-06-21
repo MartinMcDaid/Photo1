@@ -134,6 +134,10 @@ h1 {
         object-fit: scale-down;
     }
 
+.img-thumbnail:hover {
+    box-shadow: rgb(128, 128, 128) 3px 3px;
+}
+
 .grid-container {
     margin: 10px 0px 10px 0px;
 }
