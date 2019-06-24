@@ -15,6 +15,7 @@ namespace Photo1.Controllers
             _shoppingCart = shoppingCart;
         }
 
+        [Authorize]
         public IActionResult CheckOut()
         {
             return View();
